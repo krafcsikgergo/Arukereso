@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kereses | Árukereső</title>
+  </head>
+  <body>
+    <section>
+      <h1>Találatok a "<span>csirkemell</span>"" keresésére</h1>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Áruház</th>
+            <th>Cím</th>
+            <th>Telefonszám</th>
+            <th>Parkolás</th>
+            <th>Termék neve</th>
+            <th>Termék ára (Ft)</th>
+          </tr>
+          <tr>
+            <td><a href="aruhazTermekek.html">Áruház 1</a></td>
+            <td>Cím 1</td>
+            <td>Telefonszám 1</td>
+            <td>Igen</td>
+            <td>Termék 1</td>
+            <td>1000</td>
+          </tr>
+          <tr>
+            <td><a href="aruhazTermekek.html">Áruház 2</a></td>
+            <td>Cím 2</td>
+            <td>Telefonszám 2</td>
+            <td>Nem</td>
+            <td>Termék 2</td>
+            <td>2000</td>
+          </tr>
+        </table>
+      </div>
+      <div class="input-wrap">
+        <input type="text" class="searchTerm" placeholder="pl.: csirkemell.." />
+        <a href="kereses.html"
+          ><button type="submit" class="searchButton">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg></button
+        ></a>
+      </div>
+      <div class="button-container">
+        <a class="link" href="index.html"
+          ><button type="submit" class="submitButton">Vissza</button></a
+        >
+      </div>
+    </section>
+  </body>
+</html>
+<style>
+  h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+  span {
+    font-weight: bold;
+  }
+  body {
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  section {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .table-container {
+    width: 100%;
+    max-width: 1200px;
+    height: fit-content;
+    margin: 70px auto;
+  }
+  table {
+    margin: 0 auto;
+  }
+  th {
+    border: 1px solid #333;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px;
+  }
+  td {
+    border: 1px solid #333;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: right;
+    width: fit-content;
+  }
+  .input-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #00b4cc;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9dbfaf;
+  }
+
+  .searchTerm:focus {
+    color: #00b4cc;
+  }
+
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00b4cc;
+    background: #00b4cc;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  .searchButton:hover {
+    background: #219ebc;
+  }
+  .link {
+    text-decoration: none;
+    padding: 10px 14px;
+    height: fit-content;
+    border-radius: 5px;
+    width: fit-content;
+  }
+  .button-container {
+    margin-top: 40px;
+  }
+  .submitButton {
+    background-color: #00b4cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 14px;
+    height: fit-content;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .submitButton:hover {
+    background-color: #219ebc;
+  }
+</style>
