@@ -13,8 +13,8 @@
           <input type="text" placeholder="Telefonszám" />
           <input type="text" placeholder="Parkolás" />
           <div class="button-container">
-            <button class="addButton" type="button">Hozzáadás</button>
-            <button class="backButton" type="button">Vissza</button>
+            <a href="aruhazak.html" class = "buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
+            <a href="aruhazak.html" class = "buttonLink"><button class="backButton" type="button">Vissza</button></a>
           </div>
         </form>
       </div>
@@ -70,7 +70,7 @@
     font-family: 'Open Sans', sans-serif;
     background: #4caf50;
     border: none;
-    width: 50%;
+    width: 100px;
     padding: 15px;
     color: #ffffff;
     font-size: 14px;
@@ -80,12 +80,24 @@
   .addButton:hover {
     background: #43a047;
   }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+  }
+  .buttonLink{
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+  }
   .backButton {
     font-family: 'Open Sans', sans-serif;
-    width: 50%;
+    width: 100px;
     border: 1px solid #4caf50;
     background: transparent;
     transition: all 0.3 ease;
+    padding: 15px;
     cursor: pointer;
     color: #4caf50;
   }
@@ -99,10 +111,5 @@
     z-index: 1;
     max-width: 300px;
     margin: 0 auto;
-  }
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
   }
 </style>
