@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Áruház Szerkesztése | Árukereső</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+    <section>
+        <div class="form">
+            <h2 class="subtitle">Meglévő áruház szerkesztése</h2>
+            <form class="loginForm">
+                <input type="text" placeholder="Név" />
+                <input type="text" placeholder="Cím" />
+                <input type="text" placeholder="Telefonszám" />
+                <input type="text" placeholder="Parkolás" />
+                <div class="button-container">
+                    <a href="aruhazak.html" class="buttonLink"><button class="addButton"
+                            type="button">Mentés</button></a>
+                    <a href="aruhazak.html" class="buttonLink"><button class="backButton"
+                            type="button">Vissza</button></a>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+    body {
+        background-color: var(--bgColor);
+        font-family: var(--text);
+        font-size: 16px;
+        color: var(--darkColor);
+        overflow: hidden;
+    }
+
+    section {
+        width: 100%;
+        max-width: 1200px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .form {
+        position: relative;
+        z-index: 1;
+        background: white;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .subtitle {
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        margin: 0 auto 50px auto;
+    }
+
+    .form input {
+        font-family: 'Open Sans', sans-serif;
+        outline: 0;
+        background: var(--bgColor);
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .addButton {
+        font-family: 'Open Sans', sans-serif;
+        background: var(--lightBlue);
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+        padding: 15px;
+        color: white;
+        font-size: 14px;
+        transition: all 0.4 ease;
+        cursor: pointer;
+    }
+
+    .addButton:hover {
+        background: var(--darkBlue);
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .buttonLink {
+        width: fit-content;
+        height: fit-content;
+        text-decoration: none;
+    }
+
+    .backButton {
+        font-family: var(--text);
+        width: 100px;
+        border: 1px solid var(--lightBlue);
+        border-radius: 5px;
+        background: transparent;
+        transition: all 0.3 ease;
+        padding: 15px;
+        cursor: pointer;
+        color: var(--lightBlue);
+    }
+
+    .backButton:hover {
+        background: var(--darkBlue);
+        color: var(--bgColor);
+        border: 1px solid var(--darkBlue);
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+</style>

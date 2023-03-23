@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+:root {
+  --lightBlue: #00b4cc;
+  --darkBlue: #219ebc;
+  --accentRed: #e63946;
+  --bgColor: #f1f1f1;
+  --darkColor: #333;
+  --lightGray: #9dbfaf;
+  --text: 'Open Sans', sans-serif;
+}
