@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uj Aruhaz | Árukereső</title>
+  </head>
+  <body>
+    <section>
+      <div class="form">
+        <h2 class="subtitle">Új áruház hozzáadása</h2>
+        <form class="login-form">
+          <input type="text" placeholder="Név" />
+          <input type="text" placeholder="Cím" />
+          <input type="text" placeholder="Telefonszám" />
+          <input type="text" placeholder="Parkolás" />
+          <div class="button-container">
+            <a href="aruhazak.html" class = "buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
+            <a href="aruhazak.html" class = "buttonLink"><button class="backButton" type="button">Vissza</button></a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+  body {
+    background-color: #f1f1f1;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  section {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto 50px auto;
+  }
+  .form input {
+    font-family: 'Open Sans', sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .addButton {
+    font-family: 'Open Sans', sans-serif;
+    background: #4caf50;
+    border: none;
+    width: 100px;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .addButton:hover {
+    background: #43a047;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+  }
+  .buttonLink{
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+  }
+  .backButton {
+    font-family: 'Open Sans', sans-serif;
+    width: 100px;
+    border: 1px solid #4caf50;
+    background: transparent;
+    transition: all 0.3 ease;
+    padding: 15px;
+    cursor: pointer;
+    color: #4caf50;
+  }
+  .backButton:hover {
+    background: #cccccc;
+    color: white;
+    border: none;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+</style>
