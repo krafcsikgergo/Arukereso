@@ -13,10 +13,6 @@ const newProductToDBMW = require("../middleware/termekek/newProductToDBMW");
 const getProductByIdMW = require("../middleware/termekek/getProductByIdMW");
 const modifyProductMW = require("../middleware/termekek/modifyProductMW");
 
-module.exports = function (app) {
-    const objRepo = {
-    };
-};
 app.get("/", renderMW(objRepo, "index"));
 
 app.get(

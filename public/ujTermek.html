@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Uj Termék | Árukereső</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <section>
+    <div class="form">
+      <h2 class="subtitle">Új termék hozzáadása</h2>
+      <form class="login-form">
+        <input type="text" placeholder="Név" />
+        <input type="text" placeholder="Ár" />
+        <div class="button-container">
+          <a href="aruhazTermekek.html" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
+          <a href="aruhazTermekek.html" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>
+<style>
+  section {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: var(--text);
+  }
+
+  .form {
+    position: relative;
+    z-index: 1;
+    background: white;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  .subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto 50px auto;
+  }
+
+  .form input {
+    outline: 0;
+    background: var(--bgColor);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .addButton {
+    background: var(--lightBlue);
+    border: none;
+    width: 100px;
+    padding: 10px 14px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+
+  .addButton:hover {
+    background: var(--darkBlue);
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .buttonLink {
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+  }
+
+  .backButton {
+    font-family: 'Open Sans', sans-serif;
+    width: 100px;
+    border: 1px solid var(--lightBlue);
+    background: transparent;
+    transition: all 0.3 ease;
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--lightBlue);
+  }
+
+  .backButton:hover {
+    background: var(--darkBlue);
+    color: white;
+    border: 1px solid var(--darkBlue);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+</style>
