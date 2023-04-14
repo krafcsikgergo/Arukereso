@@ -4,5 +4,7 @@
  * @param {*} objectrepository 
  */
 module.exports = function (objectrepository) {
-    //TODO
+    return function (req, res, next) {
+        //TODO
+    };
 };
