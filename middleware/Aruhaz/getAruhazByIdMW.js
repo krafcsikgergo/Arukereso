@@ -4,7 +4,7 @@
  * @param {*} objectrepository 
  * @returns 
  */
-modules.exports = function (objectrepository) {
+module.exports = function (objectrepository) {
   return function (req, res, next) {
     // DB query to search for aruhaz by id (result is a single aruhaz)
     // res.locals.aruhaz = result;
