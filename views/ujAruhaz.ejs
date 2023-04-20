@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Uj Aruhaz | Árukereső</title>
-  <link rel="stylesheet" href="global.css">
-</head>
-
-<body>
+<%- include ('header.ejs', {pageTitle: "Új Áruház | Árukereső"}) %>
   <section>
     <div class="form">
       <h2 class="subtitle">Új áruház hozzáadása</h2>
@@ -16,15 +8,13 @@
         <input type="text" placeholder="Telefonszám" />
         <input type="text" placeholder="Parkolás" />
         <div class="button-container">
-          <a href="aruhazak.html" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
-          <a href="aruhazak.html" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
+          <a href="/aruhazak" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
+          <a href="/aruhazak" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
         </div>
       </form>
     </div>
   </section>
-</body>
-
-</html>
+<%- include ('footer.ejs') %>
 <style>
   section {
     width: 100%;

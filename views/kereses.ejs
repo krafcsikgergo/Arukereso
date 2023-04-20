@@ -1,43 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Kereses | Árukereső</title>
-    <link rel="stylesheet" href="global.css">
-  </head>
-  <body>
+<%-include ('header',{pageTitle: "Kereses | Árukereső"})%>
     <section>
-      <h1>Találatok a "<span>csirkemell</span>" keresésre</h1>
+      <h1>Találatok a "<span><%= keresett %></span>" keresésre</h1>
       <div class="table-container">
         <table>
           <tr>
             <th>Áruház</th>
             <th>Cím</th>
             <th>Telefonszám</th>
+            <th>Email</th>
             <th>Parkolás</th>
+            <th>Nyitvatartás</th>
             <th>Termék neve</th>
             <th>Termék ára (Ft)</th>
           </tr>
-          <tr>
-            <td><a href="aruhazTermekek.html">Áruház 1</a></td>
-            <td>Cím 1</td>
-            <td>Telefonszám 1</td>
-            <td>Igen</td>
-            <td>Termék 1</td>
-            <td>1000</td>
-          </tr>
-          <tr>
-            <td><a href="aruhazTermekek.html">Áruház 2</a></td>
-            <td>Cím 2</td>
-            <td>Telefonszám 2</td>
-            <td>Nem</td>
-            <td>Termék 2</td>
-            <td>2000</td>
-          </tr>
+          <% aruhazak.forEach(aruhaz => { %>
+            <tr>
+              <td><a href="/aruhazak/id/<%= aruhaz.id %>"><%= aruhaz.name %></a></td>
+              <td><%= aruhaz.address %></td>
+              <td><%= aruhaz.phone %></td>
+              <td><%= aruhaz.email %></td>
+              <td><%= aruhaz.parking %></td>
+              <td><%= aruhaz.opening_hours %></td>
+            <%termekek.forEach(termekek => { %>
+              <% if (termekek.aruhazId == aruhaz.id) { %>
+              <td><%= termekek.name %></td>
+              <td><%= termekek.price %></td>
+            </tr>
+            <% } %>
+          <% }) %>
+          <% }); %>
         </table>
       </div>
       <div class="input-wrap">
         <input type="text" class="searchTerm" placeholder="pl.: csirkemell.." />
-        <a href="kereses.html"
+        <a href="/kereses"
           ><button type="submit" class="searchButton">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -56,13 +52,12 @@
         ></a>
       </div>
       <div class="button-container">
-        <a class="link" href="index.html"
+        <a class="link" href="/"
           ><button type="submit" class="submitButton">Vissza</button></a
         >
       </div>
     </section>
-  </body>
-</html>
+<%-include ('footer')%>
 <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans);
   h1 {

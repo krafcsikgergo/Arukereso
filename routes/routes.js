@@ -15,6 +15,7 @@ const deleteProductMW = require("../middleware/Product/deleteProductMW");
 const newProductToDBMW = require("../middleware/Product/newProductToDBMW");
 const getProductByIdMW = require("../middleware/Product/getProductByIdMW");
 const modifyProductMW = require("../middleware/Product/modifyProductMW");
+const getAllAruhazMW = require("../middleware/Aruhaz/getAllAruhazMW");
 
 const objRepo = {};
 
@@ -26,10 +27,10 @@ router.get(
   renderMW(objRepo, "kereses")
 );
 
-router.get("/aruhazak", getAruhazByIdMW(objRepo), renderMW(objRepo, "aruhazak"));
+router.get("/aruhazak", getAllAruhazMW(objRepo), renderMW(objRepo, "aruhazak"));
 
 router.get(
-  "aruhazak/delete/id/:aruhazId",
+  "/aruhazak/delete/id/:aruhazId",
   deleteAruhazMW(objRepo),
   redirectMW(objRepo, "/aruhazak")
 );
@@ -37,7 +38,7 @@ router.get(
 router.get(
   "/aruhazak/edit/id/:aruhazId",
   getAruhazByIdMW(objRepo),
-  renderMW(objRepo, "szerkAruhaz.html")
+  renderMW(objRepo, "szerkAruhaz")
 );
 
 router.post(
@@ -46,7 +47,7 @@ router.post(
   redirectMW(objRepo, "/aruhazak")
 );
 
-router.get("/aruhazak/new", renderMW(objRepo, "ujAruhaz.html"));
+router.get("/aruhazak/new", renderMW(objRepo, "ujAruhaz"));
 
 router.post(
   "/aruhazak/new",
@@ -67,7 +68,11 @@ router.get(
   redirectMW(objRepo, "/aruhazak/id/:aruhazId")
 );
 
-router.get("/aruhazak/id/:aruhazId/newProduct", renderMW(objRepo, "addProduct"));
+router.get(
+  "/aruhazak/id/:aruhazId/newProduct",
+  getAruhazByIdMW(objRepo),
+  renderMW(objRepo, "addProduct")
+);
 
 router.post(
   "/aruhazak/id/:aruhazId/newProduct",
@@ -77,6 +82,7 @@ router.post(
 
 router.get(
   "/aruhazak/id/:aruhazId/modifyProduct/:productId",
+  getAruhazByIdMW(objRepo),
   getProductByIdMW(objRepo),
   renderMW(objRepo, "modifyProduct")
 );

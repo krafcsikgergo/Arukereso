@@ -1,0 +1,291 @@
+<%- include ('header', {pageTitle: "Termékek | Árukereső"}) %>
+    <section>
+
+        <div class="contentWrapper">
+            <h2 class="subtitle">A választott étterem terméklistája</h2>
+            <div class="contentContainer">
+                <div class="leftColumn">
+                    <table>
+                        <tr>
+                            <th>Név</th>
+                            <th>Cím</th>
+                            <th>Telefonszám</th>
+                            <th>Email</th>
+                            <th>Parkolás</th>
+                            <th>Nyitvatartás</th>
+                        </tr>
+                        <tr>
+                            <td><%= aruhaz.name%></td>
+                            <td><%= aruhaz.address%></td>
+                            <td><%= aruhaz.phone%></td>
+                            <td><%= aruhaz.email%></td>
+                            <td><%= aruhaz.parking%></td>
+                            <td><%= aruhaz.opening_hours%></td>
+                        </tr>
+                    </table>
+                    <h3>Keressen a termékek között</h3>
+                    <form class="input-wrap" method="get" action="/aruhazak/id/<%= aruhaz.id%>">
+                        <input type="text" class="searchTerm" name="filter" placeholder="pl.: csirkemell.." />
+                        <button type="submit" class="searchButton">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                        </button>
+                    </form>
+                    <div class="buttonContainer">
+                        <a class="link" href="/aruhazak/id/<%= aruhaz.id%>/newProduct"><button type="submit" class="submitButton">
+                            Új termék hozáadása
+                          </button></a>
+                        <a href="/aruhazak" class="buttonLink"><button class="backButton"
+                                type="button">Vissza</button></a>
+                                
+                    </div>
+                </div>
+                <div class="rightColumn">
+                    <div class="tableContainer">
+                        <table>
+                            <tr>
+                                <th>Termék</th>
+                                <th>Ár (Ft)</th>
+                            </tr>
+                            <% termekek.forEach(termek => { %>
+                            <tr>
+                                <td><%= termek.name%></td>
+                                <td><%= termek.price%></td>
+                                <td class="buttonTd">
+                                    <a class="linkSvg" href="/aruhazak/id/<%=aruhaz.id%>/modifyProduct/<%=termek.id%>"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="#457b9d" class="svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                      </svg>
+                                    </a>
+                                    <a class="linkSvg" href="/aruhazak/id/<%=aruhaz.id%>/deleteProduct/<%=termek.id%>"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="#e63946" class="svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                      </svg>
+                                    </a>
+                                  </td>
+                            </tr>
+                            <% }) %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<%- include('footer')%>
+<style>
+    body {
+        background-color: var(--bgColor);
+        font-family: var(--text);
+        font-size: 16px;
+        color: var(--darkColor);
+        overflow: hidden;
+    }
+
+    section {
+        width: 100vw;
+        max-width: 1200px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        text-align: center;
+        margin: 50px auto 20px auto;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        margin: 30px auto;
+    }
+    .contentContainer{
+        display: flex;
+    }
+
+    .contentWrapper {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 500px;
+        height: fit-content;
+        max-height: 100%;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .leftColumn {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 40px;
+    }
+
+    .buttonContainer {
+        width: fit-content;
+        margin: 20px auto;
+        height: fit-content;
+    }
+
+    .backButton {
+        font-family: var(--text);
+        width: 100px;
+        border: 1px solid var(--lightBlue);
+        border-radius: 5px;
+        background: transparent;
+        transition: all 0.3 ease;
+        padding: 10px 12px;
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--lightBlue);
+    }
+
+    .backButton:hover {
+        background: var(--darkBlue);
+        color: var(--bgColor);
+        border: 1px solid var(--darkBlue);
+    }
+
+    .rightColumn {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 40px;
+    }
+
+    .tableContainer {
+        width: fit-content;
+        max-width: 100%;
+        height: fit-content;
+        max-height: 300px;
+        overflow-y: scroll;
+
+    }
+
+    table {
+        margin: 0 auto;
+        overflow-y: scroll;
+    }
+
+    th {
+        border: 1px solid var(--darkColor);
+        background-color: var(--lightGray);
+        color: var(--darkColor);
+        padding: 10px;
+    }
+
+    tr {
+        height: 40px;
+    }
+
+    td {
+        border: 1px solid var(--darkColor);
+        padding: 10px;
+        text-align: right;
+        width: fit-content;
+        display: relative;
+    }
+
+    .input-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search {
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .searchTerm {
+        width: 100%;
+        max-width: 200px;
+        border: 3px solid var(--lightBlue);
+        border-right: none;
+        padding: 5px;
+        height: 20px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9dbfaf;
+    }
+
+    .searchTerm:focus {
+        color: var(--lightBlue);
+    }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid var(--lightBlue);
+        background: var(--lightBlue);
+        text-align: center;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .searchButton:hover {
+        background: var(--darkBlue);
+    }
+
+    .submitButton {
+    background-color: var(--lightBlue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 14px;
+    height: fit-content;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .submitButton:hover{
+    background-color: var(--darkBlue);
+  }
+
+  .buttonTd {
+    border: none;
+  }
+
+  .svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .linkSvg {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 70%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .linkSvg:hover {
+    opacity: 100%;
+  }
+</style>

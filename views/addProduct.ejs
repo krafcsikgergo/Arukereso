@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Uj Termék | Árukereső</title>
-  <link rel="stylesheet" href="global.css">
-</head>
-
-<body>
+<%- include ('header', {pageTitle: "Új termék | Árukereső"}) %>
   <section>
     <div class="form">
       <h2 class="subtitle">Új termék hozzáadása</h2>
@@ -14,15 +6,13 @@
         <input type="text" placeholder="Név" />
         <input type="text" placeholder="Ár" />
         <div class="button-container">
-          <a href="aruhazTermekek.html" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
-          <a href="aruhazTermekek.html" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
+          <a href="/aruhazak/id/<%=aruhaz.id%>" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
+          <a href="/aruhazak/id/<%=aruhaz.id%>" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
         </div>
       </form>
     </div>
   </section>
-</body>
-
-</html>
+<%- include ('footer') %>
 <style>
   section {
     width: 100%;
