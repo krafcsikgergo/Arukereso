@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+const db = require('./config/db');
+
 const routes = require("./routes/routes");
 app.use(express.static("public"));
 app.set("view engine", "ejs");
