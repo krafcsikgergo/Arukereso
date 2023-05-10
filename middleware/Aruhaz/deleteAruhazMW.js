@@ -10,7 +10,7 @@ module.exports = function (objectrepository) {
             if (err) {
                 return next(err);
             }
+            return next();
         });
-        return next();
     };
 };

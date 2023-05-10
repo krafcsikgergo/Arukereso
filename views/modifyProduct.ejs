@@ -1,13 +1,13 @@
 <%- include ('header', {pageTitle: "Termék szerkesztése | Árukereső"}) %>
   <section>
     <div class="form">
-      <h2 class="subtitle">Termék szerkesztése</h2>
-      <form class="login-form">
-        <input type="text" placeholder="Név" value="<%=termek.name%>"/>
-        <input type="text" placeholder="Ár" value="<%=termek.price%>"/>
+      <h2 class="subtitle"><%= termek.name%> szerkesztése</h2>
+      <form class="login-form" method="POST" action="/aruhazak/id/<%= aruhaz._id%>/modifyProduct/<%= termek._id%>">
+        <input type="text" placeholder="<%= termek.name%>" name="name"/>
+        <input type="text" placeholder="<%= termek.price%>" name="price"/>
         <div class="button-container">
-          <a href="/aruhazak/id/<%=aruhaz._id%>" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
-          <a href="/aruhazak/id/<%=aruhaz._id%>" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
+          <button class="addButton" type="submit">Hozzáadás</button>
+          <a href="/aruhazak/id/<%= aruhaz._id%>" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
         </div>
       </form>
     </div>

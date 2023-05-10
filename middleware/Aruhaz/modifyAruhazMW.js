@@ -20,8 +20,7 @@ module.exports = function (objectrepository) {
     } else {
       req.body.parking = false;
     }
-
-    res.locals.aruhaz = AruhazModel.findByIdAndUpdate(
+    AruhazModel.findByIdAndUpdate(
       req.params.aruhazId,
       {
         $set: {
@@ -37,9 +36,9 @@ module.exports = function (objectrepository) {
         if (err) {
           return next(err);
         }
+        res.locals.aruhaz = aruhaz;
+        return next();
       }
     );
-
-    next();
   };
 };

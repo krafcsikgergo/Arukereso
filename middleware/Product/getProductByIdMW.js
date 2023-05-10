@@ -5,15 +5,18 @@
  * @returns 
  */
 module.exports = function (objectrepository) {
+  const TermekModel = require("../../models/termek");
   return function (req, res, next) {
-    // DB query to search for product by id (result is a single product)
-    // res.locals.product = result;
-    res.locals.termek = {
-      aruhazId: 1,
-      id: 1,
-      name: "Tej",
-      price: 100
-    };
-    next();
+    
+    console.log(req.params.termekId);
+    TermekModel.findOne({ _id: req.params.termekId }, (err, termek) => {
+      if (err) {
+        return next(err);
+      }
+      res.locals.termek = termek;
+      console.log(res.locals.termek);
+      return next();
+    });
+    
   };
 };

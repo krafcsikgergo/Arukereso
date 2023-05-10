@@ -14,5 +14,5 @@ app.use(routes);
 app.listen(PORT, (error) => {
   console.log("Server is running on port http://localhost:3000"
   + "\n--------------------------------------------------\n" + 
-  "Db is running on port http://localhost:8081");
+  "DB web interface is running on port http://localhost:8081");
 });

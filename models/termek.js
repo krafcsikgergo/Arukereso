@@ -7,7 +7,7 @@ const Termek = db.model("Termek", {
     ref: "Aruhaz",
   },
   name: String,
-  price: Number,
+  price: String,
 });
 
 module.exports = Termek;

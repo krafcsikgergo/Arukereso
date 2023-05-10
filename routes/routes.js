@@ -62,10 +62,12 @@ router.get(
   renderMW(objRepo, "aruhazTermekek")
 );
 
-router.get(
-  "/aruhazak/id/:aruhazId/deleteProduct/:productId",
+router.post(
+  "/aruhazak/id/:aruhazId/deleteProduct/:termekId",
   deleteProductMW(objRepo),
-  redirectMW(objRepo, "/aruhazak/id/:aruhazId")
+  (req, res, next) => {
+    res.redirect(`/aruhazak/id/${req.params.aruhazId}`);
+  }
 );
 
 router.get(
@@ -77,20 +79,24 @@ router.get(
 router.post(
   "/aruhazak/id/:aruhazId/newProduct",
   newProductToDBMW(objRepo),
-  redirectMW(objRepo, "/aruhazak/id/:aruhazId")
+  (req, res, next) => {
+    res.redirect(`/aruhazak/id/${req.params.aruhazId}`);
+  }
 );
 
 router.get(
-  "/aruhazak/id/:aruhazId/modifyProduct/:productId",
+  "/aruhazak/id/:aruhazId/modifyProduct/:termekId",
   getAruhazByIdMW(objRepo),
   getProductByIdMW(objRepo),
   renderMW(objRepo, "modifyProduct")
 );
 
 router.post(
-  "/aruhazak/id/:aruhazId/modifyProduct/:productId",
+  "/aruhazak/id/:aruhazId/modifyProduct/:termekId",
   modifyProductMW(objRepo),
-  redirectMW(objRepo, "/aruhazak/id/:aruhazId")
+  (req, res, next) => {
+    res.redirect(`/aruhazak/id/${req.params.aruhazId}`);
+  }
 );
 
 module.exports = router;

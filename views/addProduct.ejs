@@ -1,17 +1,25 @@
 <%- include ('header', {pageTitle: "Új termék | Árukereső"}) %>
-  <section>
-    <div class="form">
-      <h2 class="subtitle">Új termék hozzáadása</h2>
-      <form class="login-form">
-        <input type="text" placeholder="Név" />
-        <input type="text" placeholder="Ár" />
-        <div class="button-container">
-          <a href="/aruhazak/id/<%=aruhaz._id%>" class="buttonLink"><button class="addButton" type="button">Hozzáadás</button></a>
-          <a href="/aruhazak/id/<%=aruhaz._id%>" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
-        </div>
-      </form>
+<section>
+  <div class="form">
+    <h2 class="subtitle">Új termék hozzáadása</h2>
+    <form
+    class="login-form"
+    method="POST"
+    action="/aruhazak/id/<%= aruhaz._id %>/newProduct"
+  >
+    <input type="text" placeholder="Név" name="name"/>
+    <input type="text" placeholder="Ár" name="price"/>
+    <div class="button-container">
+      
+        <button class="addButton" type="submit">Hozzáadás</button>
+      
+      <a href="/aruhazak/id/<%= aruhaz._id %>" class="buttonLink"
+        ><button class="backButton" type="button">Vissza</button></a
+      >
     </div>
-  </section>
+  </form>
+  </div>
+</section>
 <%- include ('footer') %>
 <style>
   section {
@@ -85,7 +93,7 @@
   }
 
   .backButton {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     width: 100px;
     border: 1px solid var(--lightBlue);
     background: transparent;
