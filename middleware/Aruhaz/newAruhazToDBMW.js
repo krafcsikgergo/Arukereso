@@ -7,13 +7,11 @@
 const AruhazModel = require("../../models/aruhaz");
 module.exports = function (objectrepository) {
   return function (req, res, next) {
-    console.log(req.body);
     if (
       typeof req.body.name === "undefined" ||
       typeof req.body.address === "undefined" ||
       typeof req.body.phone === "undefined" ||
       typeof req.body.email === "undefined" ||
-      typeof req.body.parking === "undefined" ||
       typeof req.body.opening_hours === "undefined"
     ) {
       return next();
@@ -28,7 +26,6 @@ module.exports = function (objectrepository) {
     else {
       req.body.parking = false;
     }
-
     res.locals.aruhaz.name = req.body.name;
     res.locals.aruhaz.address = req.body.address;
     res.locals.aruhaz.phone = req.body.phone;
@@ -40,8 +37,6 @@ module.exports = function (objectrepository) {
         return next(err);
       }
     });
-
-    console.log(res.locals.aruhaz);
     next();
   };
 };

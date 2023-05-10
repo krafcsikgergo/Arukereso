@@ -29,7 +29,7 @@ router.get(
 
 router.get("/aruhazak", getAllAruhazMW(objRepo), renderMW(objRepo, "aruhazak"));
 
-router.get(
+router.post(
   "/aruhazak/delete/id/:aruhazId",
   deleteAruhazMW(objRepo),
   redirectMW(objRepo, "/aruhazak")

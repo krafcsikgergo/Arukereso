@@ -15,14 +15,14 @@
           </tr>
           <% aruhazak.forEach(aruhaz => { %>
             <tr>
-              <td><a href="/aruhazak/id/<%= aruhaz.id %>"><%= aruhaz.name %></a></td>
+              <td><a href="/aruhazak/id/<%= aruhaz._id %>"><%= aruhaz.name %></a></td>
               <td><%= aruhaz.address %></td>
               <td><%= aruhaz.phone %></td>
               <td><%= aruhaz.email %></td>
               <td><%= aruhaz.parking %></td>
               <td><%= aruhaz.opening_hours %></td>
             <%termekek.forEach(termekek => { %>
-              <% if (termekek.aruhazId == aruhaz.id) { %>
+              <% if (termekek.aruhazId == aruhaz._id) { %>
               <td><%= termekek.name %></td>
               <td><%= termekek.price %></td>
             </tr>
