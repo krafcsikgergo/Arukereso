@@ -2,11 +2,10 @@ const Schema = require("mongoose").Schema;
 const db = require("../config/db");
 
 const Termek = db.model("Termek", {
-  aruhazId: {
+  aruhaz: {
     type: Schema.Types.ObjectId,
     ref: "Aruhaz",
   },
-  id: Number,
   name: String,
   price: Number,
 });
