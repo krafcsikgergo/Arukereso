@@ -1,49 +1,69 @@
 <%-include ('header',{pageTitle: "Kereses | Árukereső"})%>
-    <section>
-      <h1>Találatok a "<span><%= keresett %></span>" keresésre</h1>
-      <div class="table-container">
-        <table>
-          <tr>
-            <th>Áruház</th>
-            <th>Cím</th>
-            <th>Telefonszám</th>
-            <th>Email</th>
-            <th>Parkolás</th>
-            <th>Nyitvatartás</th>
-            <th>Termék neve</th>
-            <th>Termék ára (Ft)</th>
-          </tr>
-          <% termekek.forEach(termek => { %>
-            <tr>
-              <td><a href="/aruhazak/id/<%= termek.aruhaz._id %>"><%= termek.aruhaz.name %></a></td>
-              <td><%= termek.aruhaz.address %></td>
-              <td><%= termek.aruhaz.phone %></td>
-              <td><%= termek.aruhaz.email %></td>
-              <td><%= termek.aruhaz.parking %></td>
-              <td><%= termek.aruhaz.opening_hours %></td>
-              <td><%= termek.name %></td>
-              <td><%= termek.price %></td>
-            </tr>
-            <% }); %>
-        </table>
-      </div>
-      <div class="input-wrap">
-        <form class="input-wrap" method="get" action="/kereses">
-          <input name="keresett" type="text" class="searchTerm" placeholder="pl.: csirkemell.." />
-          <button type="submit" class="searchButton">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-              </svg></button>
-            </form>
-      </div>
-      <div class="button-container">
-        <a class="link" href="/"
-          ><button type="submit" class="submitButton">Vissza</button></a
+<section>
+  <h1>Találatok a "<span><%= keresett %></span>" keresésre</h1>
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>Áruház</th>
+        <th>Cím</th>
+        <th>Telefonszám</th>
+        <th>Email</th>
+        <th>Parkolás</th>
+        <th>Nyitvatartás</th>
+        <th>Termék neve</th>
+        <th>Termék ára (Ft)</th>
+      </tr>
+      <% if (termekek != null || termekek !== null) { %>
+      <% termekek.forEach(termek => { %>
+      <tr>
+        <td>
+          <a href="/aruhazak/id/<%= termek.aruhaz._id %>"
+            ><%= termek.aruhaz.name %></a
+          >
+        </td>
+        <td><%= termek.aruhaz.address %></td>
+        <td><%= termek.aruhaz.phone %></td>
+        <td><%= termek.aruhaz.email %></td>
+        <td><%= termek.aruhaz.parking %></td>
+        <td><%= termek.aruhaz.opening_hours %></td>
+        <td><%= termek.name %></td>
+        <td><%= termek.price %></td>
+      </tr>
+      <% })}; %>
+    </table>
+  </div>
+  <div class="input-wrap">
+    <form class="input-wrap" method="get" action="/kereses">
+      <input
+        name="keresett"
+        type="text"
+        class="searchTerm"
+        placeholder="pl.: csirkemell.."
+      />
+      <button type="submit" class="searchButton">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
         >
-      </div>
-    </section>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+  <div class="button-container">
+    <a class="link" href="/"
+      ><button type="submit" class="submitButton">Vissza</button></a
+    >
+  </div>
+</section>
 <%-include ('footer')%>
 <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans);

@@ -7,7 +7,7 @@ module.exports = function (objectrepository) {
   return function (req, res, next) {
     res.locals.keresett = req.query.keresett;
     if (!res.locals.keresett) {
-      return next(new Error("No search term provided"));
+      res.locals.keresett = "";
     }
 
     TermekModel.find({ name: { $regex: new RegExp('\\b' + res.locals.keresett.trim().replace(/\s+/g, '\\s*') + '\\b', 'i') } })
