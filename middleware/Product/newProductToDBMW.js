@@ -8,7 +8,6 @@ module.exports = function (objectrepository) {
   const AruhazModel = require("../../models/aruhaz");
 
   return function (req, res, next) {
-    console.log(req.body.name + " " + req.body.price);
     if (!req.body.name || !req.body.price) {
       return next();
     }

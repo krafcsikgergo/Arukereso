@@ -24,7 +24,7 @@
                         </tr>
                     </table>
                     <h3>Keressen a termékek között</h3>
-                    <form class="input-wrap" method="get" action="/aruhazak/id/<%= aruhaz._id%>">
+                    <form class="input-wrap" method="get" action="/aruhazak/id/<%= aruhaz._id%>/filtered">
                         <input type="text" class="searchTerm" name="filter" placeholder="pl.: csirkemell.." />
                         <button type="submit" class="searchButton">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -175,14 +175,14 @@ button.linkSvg:focus {
     }
 
     .rightColumn {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 40px;
-    }
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: center;
+    justify-content: flex-end;
+    align-items: top;
+    margin: 0 40px;
+}
 
     .tableContainer {
         width: fit-content;

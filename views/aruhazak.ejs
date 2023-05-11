@@ -44,7 +44,11 @@
           <td><%= aruhaz.address %></td>
           <td><%= aruhaz.phone %></td>
           <td><%= aruhaz.email %></td>
-          <td><%= aruhaz.parking %></td>
+          <% if (aruhaz.parking == true) { %>
+          <td>&#9989;</td>
+          <% } else { %>
+          <td>&#10060;</td>
+          <% } %>
           <td><%= aruhaz.opening_hours %></td>
           <td class="buttonTd">
             <a class="linkSvg" href="/aruhazak/edit/id/<%= aruhaz._id%>">
@@ -100,10 +104,12 @@
     </div>
   </section>
   <% -include ('footer') %>
-
   <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-    
+    .tick {
+      color: #28901e;
+    }
+
     button.linkSvg {
       background: none;
       border: none;

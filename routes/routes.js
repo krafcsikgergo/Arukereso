@@ -11,6 +11,7 @@ const modifyAruhazMW = require("../middleware/Aruhaz/modifyAruhazMW");
 const newAruhazToDBMW = require("../middleware/Aruhaz/newAruhazToDBMW");
 
 const getProductsFromAruhazMW = require("../middleware/Product/getProductsFromAruhazMW");
+const getSearchedProductsFromAruhazMW = require("../middleware/Product/getSearchedProductsFromAruhazMW");
 const deleteProductMW = require("../middleware/Product/deleteProductMW");
 const newProductToDBMW = require("../middleware/Product/newProductToDBMW");
 const getProductByIdMW = require("../middleware/Product/getProductByIdMW");
@@ -59,6 +60,12 @@ router.get(
   "/aruhazak/id/:aruhazId",
   getAruhazByIdMW(objRepo),
   getProductsFromAruhazMW(objRepo),
+  renderMW(objRepo, "aruhazTermekek")
+);
+
+router.get("/aruhazak/id/:aruhazId/filtered",
+  getAruhazByIdMW(objRepo),
+  getSearchedProductsFromAruhazMW(objRepo),
   renderMW(objRepo, "aruhazTermekek")
 );
 

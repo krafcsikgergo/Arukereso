@@ -3,10 +3,10 @@
     <div class="form">
       <h2 class="subtitle"><%= termek.name%> szerkesztése</h2>
       <form class="login-form" method="POST" action="/aruhazak/id/<%= aruhaz._id%>/modifyProduct/<%= termek._id%>">
-        <input type="text" placeholder="<%= termek.name%>" name="name"/>
-        <input type="text" placeholder="<%= termek.price%>" name="price"/>
+        <input type="text" value="<%= termek.name%>" name="name"/>
+        <input type="text" value="<%= termek.price%>" name="price"/>
         <div class="button-container">
-          <button class="addButton" type="submit">Hozzáadás</button>
+          <button class="addButton" type="submit">Mentés</button>
           <a href="/aruhazak/id/<%= aruhaz._id%>" class="buttonLink"><button class="backButton" type="button">Vissza</button></a>
         </div>
       </form>

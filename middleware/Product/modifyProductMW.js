@@ -24,7 +24,6 @@ module.exports = function (objectrepository) {
         }
       }
     );
-    console.log(res.locals.termek);
     return next();
   };
 };

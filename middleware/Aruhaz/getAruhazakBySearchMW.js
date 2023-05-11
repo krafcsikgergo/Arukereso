@@ -10,14 +10,13 @@ module.exports = function (objectrepository) {
       return next(new Error("No search term provided"));
     }
 
-    TermekModel.find({ name: res.locals.keresett })
+    TermekModel.find({ name: { $regex: new RegExp('\\b' + res.locals.keresett.trim().replace(/\s+/g, '\\s*') + '\\b', 'i') } })
       .populate("aruhaz")
       .exec((err, termekek) => {
         if (err) {
           return next(err);
         }
         res.locals.termekek = termekek;
-        console.log(termekek);
         return next();
       });
   };
