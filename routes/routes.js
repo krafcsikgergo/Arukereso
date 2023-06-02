@@ -18,7 +18,10 @@ const getProductByIdMW = require("../middleware/Product/getProductByIdMW");
 const modifyProductMW = require("../middleware/Product/modifyProductMW");
 const getAllAruhazMW = require("../middleware/Aruhaz/getAllAruhazMW");
 
-const objRepo = {};
+const objRepo = {
+  AruhazModel: require("../models/aruhaz"),
+  TermekModel: require("../models/termek"),
+};
 
 router.get("/", renderMW(objRepo, "index"));
 

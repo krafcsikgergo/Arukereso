@@ -4,9 +4,6 @@
  * @returns
  */
 module.exports = function (objectrepository) {
-  const TermekModel = require("../../models/termek");
-  const AruhazModel = require("../../models/aruhaz");
-
   return function (req, res, next) {
     if (!req.body.name || !req.body.price) {
       return next();
@@ -19,7 +16,7 @@ module.exports = function (objectrepository) {
     res.locals.termek.name = req.body.name;
     res.locals.termek.price = req.body.price;
 
-    AruhazModel.findOne({ _id: req.params.aruhazId }, (err, aruhaz) => {
+    objectrepository.AruhazModel.findOne({ _id: req.params.aruhazId }, (err, aruhaz) => {
       if (err) {
         return next(err);
       }

@@ -3,8 +3,7 @@
  * @param {*} objectrepository
  * @returns
  */
-module.exports = function (objectrepository) {
-  const AruhazModel = require("../../models/aruhaz");
+module.exports = function (objectRepository) {
   return function (req, res, next) {
     if (
       typeof req.body.name === "undefined" ||
@@ -20,7 +19,7 @@ module.exports = function (objectrepository) {
     } else {
       req.body.parking = false;
     }
-    AruhazModel.findByIdAndUpdate(
+    objectRepository.AruhazModel.findByIdAndUpdate(
       req.params.aruhazId,
       {
         $set: {
